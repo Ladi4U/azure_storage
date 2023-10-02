@@ -5,16 +5,16 @@ resource "azurerm_resource_group" "linuxwebapp" {
 
 resource "azurerm_service_plan" "mcit" {
   name                = "mcit"
-  resource_group_name = azurerm_resource_group.mcit.name
-  location            = azurerm_resource_group.mcit.location
+  resource_group_name = azurerm_resource_group.linuxwebapp.name
+  location            = azurerm_resource_group.linuxwebapp.location
   os_type             = "Linux"
   sku_name            = "P1v2"
 }
 
 resource "azurerm_linux_web_app" "mcit" {
   name                = "mcit"
-  resource_group_name = azurerm_resource_group.mcit.name
-  location            = azurerm_service_plan.mcit.location
+  resource_group_name = azurerm_resource_group.linuxwebapp.name
+  location            = azurerm_service_plan.linuxwebapp.location
   service_plan_id     = azurerm_service_plan.mcit.id
 
   site_config {}
