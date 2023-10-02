@@ -1,4 +1,6 @@
-
+locals{
+cluster_name= ["linuxapp1","linuxapp2","linuxapp3"]
+}
 resource "azurerm_resource_group" "mcit" {
   name     = "example-resources"
   location = "West Europe"
