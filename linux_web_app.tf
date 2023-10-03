@@ -2,7 +2,8 @@ locals{
 machine_name= ["machine11","machine22","machine33","machine44","machine55"]
 }
 resource "azurerm_resource_group" "linuxwebapp" {
-for_each= azurerm_resource_group.linuxwebapp 
+for_each= azurerm_resource_group.linuxwebapp
+name                  = "${each.key}"
   name     = "mcit-resources"
   location = "West Europe"
 }
